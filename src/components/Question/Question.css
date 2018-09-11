@@ -1,0 +1,15 @@
+.options {
+  margin: 1rem 0;
+}
+input {
+  margin-right: .5rem;
+}
+.questions {
+  background: #353239;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+.questions-text {
+  margin: 1rem 0 2rem;
+  font-size: 1.7rem;
+}

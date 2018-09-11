@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Question.css';
+
 const questions = [
   {
     'question-text': 'Sur le plan professionnel vous êtes plutôt :',
