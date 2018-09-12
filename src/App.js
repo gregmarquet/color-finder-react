@@ -7,7 +7,7 @@ import Form from './components/Form/Form';
 class App extends Component {
   render() {
     return (
-      <div className="App main-container">
+      <div className="App main-container container">
         <Header />
         <Form />
       </div>
