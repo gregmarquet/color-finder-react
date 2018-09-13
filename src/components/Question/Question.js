@@ -1,12 +1,12 @@
 import React from 'react';
 
 import './Question.css';
-import { questions } from '../../questions';
+// import { questions } from '../../questions';
 
 
 function Question(props) {
     return (      
-      questions.map((question, index) => {
+      props.questions.map((question, index) => {
         return (
           <div className="questions" key={index}>
             <p className="questions-text">
