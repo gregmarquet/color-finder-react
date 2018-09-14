@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import Chart from 'chart.js';
 import './App.css';
 
 import Header from './components/Header/Header';
 import Form from './components/Form/Form';
 import { questions } from './questions';
+import Chart from './components/Chart/Chart';
+
+let r = 0
+let j = 0
+let v = 0
+let b = 0
 
 class App extends Component {
   constructor() {
@@ -18,6 +23,8 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  
+
   componentDidMount() {
     this.setState({ questions })
   }
@@ -27,10 +34,7 @@ class App extends Component {
     this.setState({
       quizDone: true
     })
-    let r = 0
-    let j = 0
-    let v = 0
-    let b = 0
+
 
     for (let i = 1; i < 10; i++) {
       if (e.target.elements[`question${i}`].value === 'r') {
@@ -44,14 +48,14 @@ class App extends Component {
       }
     }
 
-    console.log(r, j, v,b)
+    console.log(r, j, v, b)
   }
 
   render() {
     if(this.state.quizDone) {
       return (
         <div className="App main-container container">
-          <p>Done</p>
+          <Chart r={r} j={j} v={v} b={b}/>
         </div>
       ) 
     } else {
