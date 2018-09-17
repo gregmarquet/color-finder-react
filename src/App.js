@@ -29,12 +29,15 @@ class App extends Component {
     this.setState({ questions })
   }
 
+  handleButtonChart() {
+    document.location.reload()
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.setState({
       quizDone: true
     })
-
 
     for (let i = 1; i < 10; i++) {
       if (e.target.elements[`question${i}`].value === 'r') {
@@ -55,7 +58,10 @@ class App extends Component {
     if(this.state.quizDone) {
       return (
         <div className="App main-container container">
-          <Chart r={r} j={j} v={v} b={b}/>
+          <Chart 
+          r={r} j={j} v={v} b={b} 
+          handleButtonChart={this.handleButtonChart} />
+          
         </div>
       ) 
     } else {
@@ -64,7 +70,7 @@ class App extends Component {
           <Header />
           <Form 
             questions={this.state.questions}
-            handleSubmit={this.handleSubmit} />
+            handleSubmit={this.handleSubmit}/>
         </div>
       )
     }

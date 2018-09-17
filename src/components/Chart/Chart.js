@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
+import './Chart.css';
+
 class Chart extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       data: {
         datasets: [{
-          data: [4, 3, 1, 1],
+          data: [
+            this.props.r, 
+            this.props.j, 
+            this.props.v, 
+            this.props.b],
           backgroundColor: [
             'rgba(233, 56, 56, .7)',
             'rgba(255, 249, 69, .7)',
@@ -42,10 +48,19 @@ class Chart extends Component {
   render() {
     return (
       <div className="chart">
-        <Doughnut
-          data={this.state.data}
-          options={this.state.options}
-        />
+        <div className="container">
+          <h1 id="title" className="header__title">Vos Couleurs</h1>
+          <h2 id="subtitle" className="header__subtitle">D'après les resultats du test, vos couleurs sont:</h2>
+        </div>
+        <div className="doughnut">
+          <Doughnut
+            data={this.state.data}
+            options={this.state.options}
+          />
+          <button 
+            className="button-chart" 
+            onClick={this.props.handleButtonChart}>Recommencer</button>
+        </div>
       </div>
     )
   }
