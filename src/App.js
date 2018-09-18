@@ -6,10 +6,6 @@ import Form from './components/Form/Form';
 import { questions } from './questions';
 import Chart from './components/Chart/Chart';
 
-let r = 0
-let j = 0
-let v = 0
-let b = 0
 
 class App extends Component {
   constructor() {
@@ -20,10 +16,12 @@ class App extends Component {
       quizDone: false
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+    this.r = 0
+    this.j = 0
+    this.v = 0
+    this.b = 0
 
-  
+  }
 
   componentDidMount() {
     this.setState({ questions })
@@ -33,7 +31,7 @@ class App extends Component {
     document.location.reload()
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
       quizDone: true
@@ -41,17 +39,17 @@ class App extends Component {
 
     for (let i = 1; i < 10; i++) {
       if (e.target.elements[`question${i}`].value === 'r') {
-        r += 1
+        this.r += 1
       } else if (e.target.elements[`question${i}`].value === 'j') {
-        j += 1
+        this.j += 1
       } else if (e.target.elements[`question${i}`].value === 'v') {
-        v += 1
+        this.v += 1
       } else if (e.target.elements[`question${i}`].value === 'b') {
-        b += 1
+        this.b += 1
       }
     }
 
-    console.log(r, j, v, b)
+    console.log(this.r, this.j, this.v, this.b)
   }
 
   render() {
@@ -59,7 +57,7 @@ class App extends Component {
       return (
         <div className="App main-container container">
           <Chart 
-          r={r} j={j} v={v} b={b} 
+          r={this.r} j={this.j} v={this.v} b={this.b} 
           handleButtonChart={this.handleButtonChart} />
           
         </div>

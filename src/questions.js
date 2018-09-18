@@ -264,3 +264,76 @@ const questions = [
 
 
 export { questions }
+
+
+// const questions = {
+//     'question-text': [
+//       'Sur le plan professionnel vous êtes plutôt :',
+//       'Sur le lieu de votre travail ce qui est important pour vous :',
+//       'On dit de vous que vous êtes :',
+//       'Vous êtes de nature :',
+//       'Vous avez peur :',
+//       'Vous aimez :',
+//       'Choisissez un mot :',
+//       'Vous savez :',
+//       'Vous pouvez être :'
+//     ],
+//     options: [
+//       [
+//         { 'Ambitieux': 'r'},                         
+//         { 'Plein d\'idées': 'j'},              
+//         { 'Méthodique': 'v'},              
+//         { 'Pointilleux': 'b'}
+//       ],
+//       [
+//         { 'Réaliser ma mission avec perfection': 'b'},
+//         { 'L\'harmonie dans l\'équipe': 'v'},
+//         { 'Avoir des relations interpersonnelles': 'j'},
+//         { 'Relever des défis': 'r'}
+//       ],
+//       [
+//         { 'Serviable': 'v'},                          
+//         { 'Discipliné': 'b' },                  
+//         { 'Convainquant': 'j' },          
+//         { 'Déterminé': 'r'}
+//       ],
+//       [
+//         { 'Joviale': 'j'},                           
+//         { 'Impatiente': 'r'},               
+//         { 'Perfectionniste': 'b'},        
+//         { 'Calme': 'v'} 
+//       ],
+//       [
+//         { 'Des conflits': 'v'},                    
+//         { 'Des critiques': 'b'},             
+//         { 'D\'être seul': 'j'},               
+//         { 'Que l\'on profite de vous': 'r'}
+//       ],
+//       [
+//         { 'Diriger': 'r'},
+//         { 'Aider les autres': 'r'},
+//         { 'Etre entouré d\'amis': 'r'},
+//         { 'Approfondir les sujets': 'r'}
+//       ],
+//       [
+//         { 'Improvisation': 'r'},                
+//         { 'Action': 'r'},                       
+//         { 'Précision': 'r'},                 
+//         { 'Écoute': 'r'} 
+//       ],
+//       [
+//         { 'Décider': 'r'},                 
+//         { 'Analyser': 'r'},                      
+//         { 'Vous adapter': 'r'},                  
+//         { 'Motiver': 'r'}
+//       ],
+//       [
+//         { 'Trop direct': 'r'},                
+//         { 'Froid': 'r'},                      
+//         { 'Dissipé': 'r'},                 
+//         { 'Possessif': 'r'}
+//       ]
+//     ]
+// }
+
+// export { questions }
