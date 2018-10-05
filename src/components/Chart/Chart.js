@@ -10,10 +10,11 @@ class Chart extends Component {
       data: {
         datasets: [{
           data: [
-            this.props.r, 
-            this.props.j, 
-            this.props.v, 
-            this.props.b],
+            Math.round(this.props.r / 0.09), 
+            Math.round(this.props.j / 0.09), 
+            Math.round(this.props.v / 0.09), 
+            Math.round(this.props.b / 0.09)
+          ],
           backgroundColor: [
             'rgba(233, 56, 56, .7)',
             'rgba(255, 249, 69, .7)',

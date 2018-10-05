@@ -33,6 +33,9 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    if(this.r + this.j + this.v + this.b === 9){
+      
+    }
     this.setState({
       quizDone: true
     })
