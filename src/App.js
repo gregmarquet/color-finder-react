@@ -64,6 +64,18 @@ class App extends Component {
     }
   }
 
+  handleBackClick = () => {
+    alert('you clicked back')
+  }
+
+  handleNextClick = () => {
+    alert('you clicked next')
+  }
+
+  handleSubmitClick = () => {
+    alert('you clicked submit')
+  }
+
   getResults() {
     const answersCount = this.state.answersCount;
     const answersCountKeys = Object.keys(answersCount);
@@ -89,6 +101,9 @@ class App extends Component {
         question={this.state.question}
         questionTotal={quizQuestions.length}
         onAnswerSelected={this.handleAnswerSelected}
+        onBackClick={this.handleBackClick}
+        onNextClick={this.handleNextClick}
+        onSubmitClick={this.handleSubmitClick}
       />
     );
   }

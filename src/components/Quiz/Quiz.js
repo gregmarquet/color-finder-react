@@ -48,14 +48,17 @@ function Quiz(props) {
           <button
             className="back"
             id="back"
+            onClick={props.onBackClick}
           >back</button>
           <button
             className="next"
             id="next"
+            onClick={props.onNextClick}
           >next</button>
           <button
             className="submit hidden"
             id="submit"
+            onClick={props.onSubmitClick}
           >Terminer</button>
         </div>
       </div>
