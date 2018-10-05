@@ -1,15 +1,13 @@
-.options {
-  margin: 1rem 0;
+.question {
+  margin: 0;
+  padding: 0.5rem 2.5rem 1.5rem 2.5rem;
+  font-weight: 300;
+  font-size: 1.6rem;
 }
-input {
-  margin-right: 1rem;
-}
-.questions {
-  background: #353239;
-  padding: 1rem;
-  margin-bottom: 2rem;
-}
-.questions-text {
-  margin: 1rem 0 2rem;
-  font-size: 1.7rem;
+
+@media screen and (max-width: 420px) {
+  .question {
+    font-size: 1.1rem;
+  }
+  
 }

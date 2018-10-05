@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Doughnut } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2';
 
 import './Chart.css';
 
@@ -10,17 +10,18 @@ class Chart extends Component {
       data: {
         datasets: [{
           data: [
-            Math.round(this.props.r / 0.09), 
-            Math.round(this.props.j / 0.09), 
-            Math.round(this.props.v / 0.09), 
-            Math.round(this.props.b / 0.09)
+            Math.round(this.props.r / 0.13),
+            Math.round(this.props.j / 0.13),
+            Math.round(this.props.v / 0.13),
+            Math.round(this.props.b / 0.13)
           ],
           backgroundColor: [
             'rgba(233, 56, 56, .7)',
             'rgba(255, 249, 69, .7)',
             'rgba(103, 220, 60, .7)',
             'rgba(5, 55, 141, .7)'
-          ]
+          ],
+          borderWidth: 0
         }],
         labels: [
           'Rouge',
@@ -49,18 +50,16 @@ class Chart extends Component {
   render() {
     return (
       <div className="chart">
-        <div className="container">
-          <h1 id="title" className="header__title">Vos Couleurs</h1>
-          <h2 id="subtitle" className="header__subtitle">D'après les resultats du test, vos couleurs sont:</h2>
-        </div>
-        <div className="doughnut">
-          <Doughnut
+        <div className="container doughnut">
+          <Pie
             data={this.state.data}
             options={this.state.options}
           />
-          <button 
-            className="button-chart" 
-            onClick={this.props.handleButtonChart}>Recommencer</button>
+          {
+            //<button
+            //   className="button-chart"
+            //   onClick={this.props.handleButtonChart}>Recommencer</button>//
+          }
         </div>
       </div>
     )

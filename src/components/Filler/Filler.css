@@ -1,0 +1,6 @@
+.filler {
+  background: #8BC53F;
+  height: 100%;
+  border-radius: inherit;
+  transition: width .2s ease-in;
+}
