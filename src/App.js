@@ -1,81 +1,117 @@
 import React, { Component } from 'react';
+import update from 'immutability-helper';
+import Quiz from './components/Quiz/Quiz';
+import quizQuestions from './api/quizQuestions';
+import Result from './components/Result/Result';
+import logo from './logo.svg';
 import './App.css';
 
-import Header from './components/Header/Header';
-import Form from './components/Form/Form';
-import { questions } from './questions';
-import Chart from './components/Chart/Chart';
-
-
 class App extends Component {
-  constructor() {
-    super()
-
+  constructor(props) {
+    super(props);
     this.state = {
-      questions: [],
-      quizDone: false
-    }
+      counter: 0,
+      questionId: 1,
+      question: '',
+      answerOptions: [],
+      answer: '',
+      answersCount: {
+        r: 0,
+        j: 0,
+        v: 0,
+        b: 0
 
-    this.r = 0
-    this.j = 0
-    this.v = 0
-    this.b = 0
-
+      },
+      result: ''
+    };
+    this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
   }
 
-  componentDidMount() {
-    this.setState({ questions })
-  }
-
-  handleButtonChart() {
-    document.location.reload()
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    if(this.r + this.j + this.v + this.b === 9){
-      
-    }
+  componentWillMount() {
     this.setState({
-      quizDone: true
-    })
+      question: quizQuestions[0].question,
+      answerOptions: quizQuestions[0].answers
+    });
+  }
 
-    for (let i = 1; i < 10; i++) {
-      if (e.target.elements[`question${i}`].value === 'r') {
-        this.r += 1
-      } else if (e.target.elements[`question${i}`].value === 'j') {
-        this.j += 1
-      } else if (e.target.elements[`question${i}`].value === 'v') {
-        this.v += 1
-      } else if (e.target.elements[`question${i}`].value === 'b') {
-        this.b += 1
-      }
+  setUserAnswer(answer) {
+    const updatedAnswersCount = update(this.state.answersCount, {
+      [answer]: { $apply: (currentValue) => currentValue + 1 }
+    });
+    this.setState({
+      answersCount: updatedAnswersCount,
+      answer: answer
+    });
+  }
+
+  setNextQuestion() {
+    const counter = this.state.counter + 1;
+    const questionId = this.state.questionId + 1;
+    this.setState({
+      counter: counter,
+      questionId: questionId,
+      question: quizQuestions[counter].question,
+      answerOptions: quizQuestions[counter].answers,
+      answer: ''
+    });
+  }
+
+  handleAnswerSelected(event) {
+    this.setUserAnswer(event.currentTarget.value);
+    if (this.state.questionId < quizQuestions.length) {
+      setTimeout(() => this.setNextQuestion(), 300);
+    } else {
+      setTimeout(() => this.setResults(this.getResults()), 300);
     }
+  }
 
-    console.log(this.r, this.j, this.v, this.b)
+  getResults() {
+    const answersCount = this.state.answersCount;
+    const answersCountKeys = Object.keys(answersCount);
+    const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
+    const maxAnswerCount = Math.max.apply(null, answersCountValues);
+    return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
+  }
+
+  setResults(result) {
+    if (result.length === 1) {
+      this.setState({ result: result[0] });
+    } else {
+      this.setState({ result: 'Undetermined' });
+    }
+  }
+
+  renderQuiz() {
+    return (
+      <Quiz
+        answer={this.state.answer}
+        answerOptions={this.state.answerOptions}
+        questionId={this.state.questionId}
+        question={this.state.question}
+        questionTotal={quizQuestions.length}
+        onAnswerSelected={this.handleAnswerSelected}
+      />
+    );
+  }
+  renderResult() {
+    return (
+      <Result
+        r={this.state.answersCount.r}
+        j={this.state.answersCount.j}
+        v={this.state.answersCount.v}
+        b={this.state.answersCount.b} />
+    );
   }
 
   render() {
-    if(this.state.quizDone) {
-      return (
-        <div className="App main-container container">
-          <Chart 
-          r={this.r} j={this.j} v={this.v} b={this.b} 
-          handleButtonChart={this.handleButtonChart} />
-          
-        </div>
-      ) 
-    } else {
-      return (
-        <div className="App main-container container">
-          <Header />
-          <Form 
-            questions={this.state.questions}
-            handleSubmit={this.handleSubmit}/>
-        </div>
-      )
-    }
-    
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+        {this.state.result ? this.renderResult() : this.renderQuiz()}
+      </div>
+    );
   }
 }
 
