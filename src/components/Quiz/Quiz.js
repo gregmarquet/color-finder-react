@@ -11,6 +11,20 @@ const Fragment = React.Fragment;
 
 function Quiz(props) {
 
+  // const disableButton = (button) => {
+  //   button.disabled = true
+  // }
+  // const enableButton = (button) => {
+  //   button.disabled = false
+  // }
+  // const manageBackButton = () => {
+  //   currentQuestion === 0 ? disableButton(backButton) : enableButton(backButton)
+  // }
+
+  // const manageNextButton = () => {
+  //   currentQuestion < maxQuestion ? enableButton(nextButton) : disableButton(nextButton)
+  // }
+
   function renderAnswerOptions(key) {
     return (
       <AnswerOption
@@ -44,7 +58,7 @@ function Quiz(props) {
         <ul className="answerOptions">
           {props.answerOptions.map(renderAnswerOptions)}
         </ul>
-        <div>
+        <div className="bottom">
           <button
             className="back"
             id="back"
@@ -55,11 +69,12 @@ function Quiz(props) {
             id="next"
             onClick={props.onNextClick}
           >next</button>
-          <button
-            className="submit hidden"
-            id="submit"
-            onClick={props.onSubmitClick}
-          >Terminer</button>
+                <button
+                  className="submit hidden"
+                  id="submit"
+                  onClick={props.onSubmitClick}
+                >Terminer</button>
+
         </div>
       </div>
     </Fragment>

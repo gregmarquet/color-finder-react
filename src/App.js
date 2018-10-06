@@ -34,6 +34,7 @@ class App extends Component {
   }
 
   setUserAnswer(answer) {
+    console.log(answer)
     const updatedAnswersCount = update(this.state.answersCount, {
       [answer]: { $apply: (currentValue) => currentValue + 1 }
     });
@@ -41,6 +42,18 @@ class App extends Component {
       answersCount: updatedAnswersCount,
       answer: answer
     });
+  }
+
+  setLastQuestion() {
+    const counter = this.state.counter - 1;
+    const questionId = this.state.questionId - 1;
+    this.setState({
+      counter: counter,
+      questionId: questionId,
+      question: quizQuestions[counter].question,
+      answerOptions: quizQuestions[counter].answers,
+      answer: ''
+    })
   }
 
   setNextQuestion() {
@@ -52,28 +65,26 @@ class App extends Component {
       question: quizQuestions[counter].question,
       answerOptions: quizQuestions[counter].answers,
       answer: ''
-    });
+    })
   }
-
+    
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);
-    } else {
-      setTimeout(() => this.setResults(this.getResults()), 300);
-    }
+    } 
   }
 
   handleBackClick = () => {
-    alert('you clicked back')
+    setTimeout(() => this.setLastQuestion(), 300)
   }
 
   handleNextClick = () => {
-    alert('you clicked next')
+    setTimeout(() => this.setNextQuestion(), 300)
   }
 
   handleSubmitClick = () => {
-    alert('you clicked submit')
+    setTimeout(() => this.setResults(this.getResults()), 300);
   }
 
   getResults() {

@@ -15,6 +15,51 @@
   margin-top: 0px;
 }
 
+/****** Bottom Buttons ******/
+/* .hidden {
+  display: none;
+} */
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.4rem .7rem .7rem;
+  border-top: 1px solid #eee;
+}
+
+.bottom button {
+  height: 3rem;
+  width: 6rem;
+  font-size: 1rem;
+  background: none;
+  border-color: #eee;
+  font-weight: 300;
+  transition: all .1s ease;
+}
+.bottom button:focus {
+  outline: 0;
+}
+.bottom button:hover {
+  /* background: #f00; */
+  box-shadow: 2px 2px 2px #ccc;
+  font-size: 1.1rem;
+}
+
+.bottom button:disabled {
+  color: #fff;
+  border-color: #fff;
+}
+
+.bottom .submit {
+  width: 7rem;
+  background: #8BC53F;
+  border-color: #8BC53F;
+  color: white;
+  font-size: 1.1rem;
+}
+
+/****************************/
+
 @media screen and (max-width: 420px) {
   .header__title {
     font-size: 1.6rem;
