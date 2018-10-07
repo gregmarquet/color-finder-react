@@ -11,13 +11,13 @@ function Result(props) {
       <div>
         <div className='result__color-legend--container'>
           <p className='result__color-legend'>
-            <span className='result__color-legend--color r'>R</span> : {`${Math.round(props.r / 0.13)}% ${props.r}`}</p>
+            <span className='result__color-legend--color r'>R</span> : {`${Math.round(props.r / 0.13)}%`}</p>
           <p className='result__color-legend'>
-            <span className='result__color-legend--color j'>J</span> : {`${Math.round(props.j / 0.13)}% ${props.j}`}</p>
+            <span className='result__color-legend--color j'>J</span> : {`${Math.round(props.j / 0.13)}%`}</p>
           <p className='result__color-legend'>
-            <span className='result__color-legend--color v'>V</span> : {`${Math.round(props.v / 0.13)}% ${props.v}`}</p>
+            <span className='result__color-legend--color v'>V</span> : {`${Math.round(props.v / 0.13)}%`}</p>
           <p className='result__color-legend'>
-            <span className='result__color-legend--color b'>B</span> : {`${Math.round(props.b / 0.13)}% ${props.b}`}</p>
+            <span className='result__color-legend--color b'>B</span> : {`${Math.round(props.b / 0.13)}%`}</p>
         </div>
       </div>
       <Chart

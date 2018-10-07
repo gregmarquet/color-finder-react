@@ -59,21 +59,28 @@ function Quiz(props) {
           {props.answerOptions.map(renderAnswerOptions)}
         </ul>
         <div className="bottom">
-          <button
-            className="back"
-            id="back"
-            onClick={props.onBackClick}
-          >back</button>
+          {props.questionId === 1 
+            ? <button className="empty"></button>
+            : <button
+                className="back"
+                id="back"
+                onClick={props.onBackClick}
+              >back</button>}
+          
+
+          {props.questionId < props.maxQuestion &&
           <button
             className="next"
             id="next"
             onClick={props.onNextClick}
-          >next</button>
+          >next</button>}
+
+          {props.quizDone &&
                 <button
                   className="submit hidden"
                   id="submit"
                   onClick={props.onSubmitClick}
-                >Terminer</button>
+                >Terminer</button>}
 
         </div>
       </div>

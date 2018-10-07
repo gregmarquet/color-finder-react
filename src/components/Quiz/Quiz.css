@@ -36,6 +36,10 @@
   font-weight: 300;
   transition: all .1s ease;
 }
+.bottom button.empty {
+  border: none;
+}
+
 .bottom button:focus {
   outline: 0;
 }
@@ -43,6 +47,9 @@
   /* background: #f00; */
   box-shadow: 2px 2px 2px #ccc;
   font-size: 1.1rem;
+}
+.bottom button.empty:hover {
+  box-shadow: none;
 }
 
 .bottom button:disabled {

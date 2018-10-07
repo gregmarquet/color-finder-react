@@ -21,7 +21,9 @@ class App extends Component {
         b: 0
 
       },
-      result: ''
+      result: '',
+      maxQuestion: 1,
+      quizDone: false
     };
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
   }
@@ -57,14 +59,20 @@ class App extends Component {
   }
 
   setNextQuestion() {
+    let maxQuestion = this.state.maxQuestion
+    if (this.state.maxQuestion === this.state.questionId) {
+      maxQuestion += 1;
+    }
     const counter = this.state.counter + 1;
     const questionId = this.state.questionId + 1;
+    
     this.setState({
       counter: counter,
       questionId: questionId,
       question: quizQuestions[counter].question,
       answerOptions: quizQuestions[counter].answers,
-      answer: ''
+      answer: '',
+      maxQuestion: maxQuestion
     })
   }
     
@@ -72,7 +80,12 @@ class App extends Component {
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);
-    } 
+    } else {
+      const quizDone = true
+      this.setState({
+        quizDone: quizDone
+      })
+    }
   }
 
   handleBackClick = () => {
@@ -115,6 +128,8 @@ class App extends Component {
         onBackClick={this.handleBackClick}
         onNextClick={this.handleNextClick}
         onSubmitClick={this.handleSubmitClick}
+        maxQuestion={this.state.maxQuestion}
+        quizDone={this.state.quizDone}
       />
     );
   }
