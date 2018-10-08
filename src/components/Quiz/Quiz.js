@@ -11,20 +11,6 @@ const Fragment = React.Fragment;
 
 function Quiz(props) {
 
-  // const disableButton = (button) => {
-  //   button.disabled = true
-  // }
-  // const enableButton = (button) => {
-  //   button.disabled = false
-  // }
-  // const manageBackButton = () => {
-  //   currentQuestion === 0 ? disableButton(backButton) : enableButton(backButton)
-  // }
-
-  // const manageNextButton = () => {
-  //   currentQuestion < maxQuestion ? enableButton(nextButton) : disableButton(nextButton)
-  // }
-
   function renderAnswerOptions(key) {
     return (
       <AnswerOption

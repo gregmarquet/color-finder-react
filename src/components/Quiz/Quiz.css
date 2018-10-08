@@ -15,11 +15,6 @@
   margin-top: 0px;
 }
 
-/****** Bottom Buttons ******/
-/* .hidden {
-  display: none;
-} */
-
 .bottom {
   display: flex;
   justify-content: space-between;
