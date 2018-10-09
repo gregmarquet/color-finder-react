@@ -62,7 +62,7 @@ function Quiz(props) {
             onClick={props.onNextClick}
           >next</button>}
 
-          {props.quizDone &&
+          {props.answers.length === props.questionTotal &&
                 <button
                   className="submit hidden"
                   id="submit"

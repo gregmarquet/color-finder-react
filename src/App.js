@@ -14,13 +14,7 @@ class App extends Component {
       question: '',
       answerOptions: [],
       answers: [],
-      answersCount: {
-        r: 0,
-        j: 0,
-        v: 0,
-        b: 0
-
-      },
+      answersCount: {},
       result: '',
       maxQuestion: 1,
       quizDone: false
@@ -48,22 +42,9 @@ class App extends Component {
     console.log(answers)
 
     this.setState({
-      // answersCount: updatedAnswersCount,
-      // answer:answer,
       answers: answers
     });
   }
-
-  // setUserAnswer(answer) {
-  //   console.log(answer)
-  //   const updatedAnswersCount = update(this.state.answersCount, {
-  //     [answer]: { $apply: (currentValue) => currentValue + 1 }
-  //   });
-  //   this.setState({
-  //     answersCount: updatedAnswersCount,
-  //     answer: answer
-  //   });
-  // }
 
   setLastQuestion() {
     const counter = this.state.counter - 1;
@@ -72,8 +53,7 @@ class App extends Component {
       counter: counter,
       questionId: questionId,
       question: quizQuestions[counter].question,
-      answerOptions: quizQuestions[counter].answers,
-      // answer: ''
+      answerOptions: quizQuestions[counter].answers
     })
   }
 
@@ -91,7 +71,6 @@ class App extends Component {
       questionId: questionId,
       question: question,
       answerOptions: quizQuestions[counter].answers,
-      // answer: '',
       maxQuestion: maxQuestion
     })
   }
@@ -99,51 +78,40 @@ class App extends Component {
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
-      // setTimeout(() => this.setNextQuestion(), 300);
       this.setNextQuestion()
-    } else {
-      const quizDone = true
-      this.setState({
-        quizDone: quizDone
-      })
     }
   }
 
   handleBackClick = () => {
-    // setTimeout(() => this.setLastQuestion(), 300)
     this.setLastQuestion()
   }
 
   handleNextClick = () => {
-    // setTimeout(() => this.setNextQuestion(), 300)
     this.setNextQuestion()
   }
 
   handleSubmitClick = () => {
-    // setTimeout(() => this.setResults(this.getResults()), 300);
-    this.setResults(this.getResults())
+    this.getAnswerCount()
+    const quizDone = true
+    this.setState({
+      quizDone: quizDone
+    })
   }
 
-  getResults() {
-    const answersCount = this.state.answersCount;
-    const answersCountKeys = Object.keys(answersCount);
-    const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
-    const maxAnswerCount = Math.max.apply(null, answersCountValues);
-    return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
-  }
-
-  setResults(result) {
-    if (result.length === 1) {
-      this.setState({ result: result[0] });
-    } else {
-      this.setState({ result: 'Undetermined' });
-    }
+  getAnswerCount = () => {
+    let answersCount = this.state.answers.reduce((obj, char) => {
+      char in obj ? obj[char]++ : obj[char] = 1;
+      return obj
+    }, {})
+    this.setState({
+      answersCount: answersCount
+    })
   }
 
   renderQuiz() {
     return (
       <Quiz
-        // answer={this.state.answer}
+        answers={this.state.answers}
         answerOptions={this.state.answerOptions}
         questionId={this.state.questionId}
         question={this.state.question}
@@ -173,7 +141,7 @@ class App extends Component {
         <header className="App-header">
           
         </header>
-        {this.state.result ? this.renderResult() : this.renderQuiz()}
+        {this.state.quizDone ? this.renderResult() : this.renderQuiz()}
       </div>
     );
   }
