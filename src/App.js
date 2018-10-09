@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import update from 'immutability-helper';
+// import update from 'immutability-helper';
 import Quiz from './components/Quiz/Quiz';
 import quizQuestions from './api/quizQuestions';
 import Result from './components/Result/Result';
@@ -13,7 +13,7 @@ class App extends Component {
       questionId: 1,
       question: '',
       answerOptions: [],
-      answer: '',
+      answers: [],
       answersCount: {
         r: 0,
         j: 0,
@@ -37,14 +37,33 @@ class App extends Component {
 
   setUserAnswer(answer) {
     console.log(answer)
-    const updatedAnswersCount = update(this.state.answersCount, {
-      [answer]: { $apply: (currentValue) => currentValue + 1 }
-    });
+    let answers = this.state.answers.slice()
+    const questionId = this.state.questionId
+    if(answers[questionId - 1]) {
+      answers[questionId - 1] = answer
+    } else {
+      answers.push(answer)
+    }
+
+    console.log(answers)
+
     this.setState({
-      answersCount: updatedAnswersCount,
-      answer: answer
+      // answersCount: updatedAnswersCount,
+      // answer:answer,
+      answers: answers
     });
   }
+
+  // setUserAnswer(answer) {
+  //   console.log(answer)
+  //   const updatedAnswersCount = update(this.state.answersCount, {
+  //     [answer]: { $apply: (currentValue) => currentValue + 1 }
+  //   });
+  //   this.setState({
+  //     answersCount: updatedAnswersCount,
+  //     answer: answer
+  //   });
+  // }
 
   setLastQuestion() {
     const counter = this.state.counter - 1;
@@ -54,7 +73,7 @@ class App extends Component {
       questionId: questionId,
       question: quizQuestions[counter].question,
       answerOptions: quizQuestions[counter].answers,
-      answer: ''
+      // answer: ''
     })
   }
 
@@ -65,13 +84,14 @@ class App extends Component {
     }
     const counter = this.state.counter + 1;
     const questionId = this.state.questionId + 1;
+    const question = quizQuestions[counter].question;
     
     this.setState({
       counter: counter,
       questionId: questionId,
-      question: quizQuestions[counter].question,
+      question: question,
       answerOptions: quizQuestions[counter].answers,
-      answer: '',
+      // answer: '',
       maxQuestion: maxQuestion
     })
   }
@@ -79,7 +99,8 @@ class App extends Component {
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
-      setTimeout(() => this.setNextQuestion(), 300);
+      // setTimeout(() => this.setNextQuestion(), 300);
+      this.setNextQuestion()
     } else {
       const quizDone = true
       this.setState({
@@ -89,15 +110,18 @@ class App extends Component {
   }
 
   handleBackClick = () => {
-    setTimeout(() => this.setLastQuestion(), 300)
+    // setTimeout(() => this.setLastQuestion(), 300)
+    this.setLastQuestion()
   }
 
   handleNextClick = () => {
-    setTimeout(() => this.setNextQuestion(), 300)
+    // setTimeout(() => this.setNextQuestion(), 300)
+    this.setNextQuestion()
   }
 
   handleSubmitClick = () => {
-    setTimeout(() => this.setResults(this.getResults()), 300);
+    // setTimeout(() => this.setResults(this.getResults()), 300);
+    this.setResults(this.getResults())
   }
 
   getResults() {
@@ -119,7 +143,7 @@ class App extends Component {
   renderQuiz() {
     return (
       <Quiz
-        answer={this.state.answer}
+        // answer={this.state.answer}
         answerOptions={this.state.answerOptions}
         questionId={this.state.questionId}
         question={this.state.question}

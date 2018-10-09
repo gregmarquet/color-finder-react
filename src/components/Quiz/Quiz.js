@@ -12,12 +12,13 @@ const Fragment = React.Fragment;
 function Quiz(props) {
 
   function renderAnswerOptions(key) {
+    // console.log(props.questionId, key.type)
     return (
       <AnswerOption
         key={key.content}
         answerContent={key.content}
         answerType={key.type}
-        answer={props.answer}
+        // answer={props.answer}
         questionId={props.questionId}
         onAnswerSelected={props.onAnswerSelected}
       />
@@ -75,7 +76,7 @@ function Quiz(props) {
 }
 
 Quiz.propTypes = {
-  answer: PropTypes.string.isRequired,
+  // answer: PropTypes.string.isRequired,
   answerOptions: PropTypes.array.isRequired,
   question: PropTypes.string.isRequired,
   questionId: PropTypes.number.isRequired,
