@@ -30,7 +30,6 @@ class App extends Component {
   }
 
   setUserAnswer(answer) {
-    console.log(answer)
     let answers = this.state.answers.slice()
     const questionId = this.state.questionId
     if(answers[questionId - 1]) {
@@ -38,8 +37,6 @@ class App extends Component {
     } else {
       answers.push(answer)
     }
-
-    console.log(answers)
 
     this.setState({
       answers: answers
