@@ -31,8 +31,8 @@ function Quiz(props) {
   return (
     <Fragment>
       <div>
-        <h1 className="header__title">Découvrir Ses Couleurs</h1>
-        <h2 className="header__subtitle">Remplissez ce questionnaire pour découvrir vos couleurs</h2>
+        <h1 className="header__title">Discover Your Colors</h1>
+        <h2 className="header__subtitle">Fill in this questionnaire to discover your colors</h2>
       </div>
       <div className="container quiz-container">
         <ProgressBar progress={renderProgress()} />

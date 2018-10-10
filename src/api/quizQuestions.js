@@ -1,133 +1,133 @@
 const quizQuestions = [
   {
-    question: 'Sur le plan professionnel vous êtes plutôt :',
+    question: 'On a professional level, you are more :',
     answers: [
       {
         type: 'r',
-        content: 'Ambitieux'
+        content: 'Ambitious'
       },
       {
         type: 'j',
-        content: 'Plein d\'idées'
+        content: 'Full of ideas'
       },
       {
         type: 'v',
-        content: 'Méthodique'
+        content: 'Methodical'
       },
       {
         type: 'b',
-        content: 'Pointilleux'
+        content: 'Finicky'
       }
     ]
   },
   {
-    question: 'Sur le lieu de votre travail ce qui est important pour vous :',
+    question: 'At work, what is important for you is :',
     answers: [
       {
         type: 'b',
-        content: 'Réaliser ma mission avec perfection'
+        content: 'To achieve your mission with perfection'
       },
       {
         type: 'v',
-        content: 'L\'harmonie dans l\'équipe'
+        content: 'The harmony in your team'
       },
       {
         type: 'j',
-        content: 'Les relations avec les clients'
+        content: 'The relationship with your clients'
       },
       {
         type: 'r',
-        content: 'Relever des défis'
+        content: 'To take on challenges'
       }
     ]
   },
   {
-    question: 'On dit de vous que vous êtes :',
+    question: 'People say that you are :',
     answers: [
       {
         type: 'v',
-        content: 'Serviable'
+        content: 'Obliging'
       },
       {
         type: 'b',
-        content: 'Discipliné'
+        content: 'Disciplined'
       },
       {
         type: 'j',
-        content: 'Convaincant'
+        content: 'Convincing'
       },
       {
         type: 'r',
-        content: 'Déterminé'
+        content: 'Determined'
       }
     ]
   },
   {
-    question: 'Vous êtes de nature :',
+    question: 'You are by nature :',
     answers: [
       {
         type: 'j',
         id: '13',
-        content: 'Joviale'
+        content: 'Jovial'
       },
       {
         type: 'r',
-        content: 'Impatiente'
+        content: 'Impatient'
       },
       {
         type: 'b',
-        content: 'Perfectionniste'
+        content: 'Perfectionist'
       },
       {
         type: 'v',
-        content: 'Calme'
+        content: 'Calm'
       }
     ]
   },
   {
-    question: 'Vous avez peur :',
+    question: 'You are afraid :',
     answers: [
       {
         type: 'v',
-        content: 'Des conflits'
+        content: 'Of conflic'
       },
       {
         type: 'b',
-        content: 'Des critiques'
+        content: 'Of critics'
       },
       {
         type: 'j',
-        content: 'D\'être seul'
+        content: 'To be alone'
       },
       {
         type: 'r',
-        content: 'Que l\'on profite de vous'
+        content: 'To be taken advantage of'
       }
     ]
   },
   {
-    question: 'Vous aimez :',
+    question: 'You love :',
     answers: [
       {
         type: 'r',
-        content: 'Diriger'
+        content: 'To lead'
       },
       {
         type: 'v',
-        content: 'Aider les autres'
+        content: 'To help others'
       },
       {
         type: 'j',
-        content: 'Être entouré d\'amis'
+        content: 'To be surrounded by friends'
       },
       {
         type: 'b',
-        content: 'Approfondir les sujets'
+        content: 'To learn more about a subject'
       }
     ]
   },
   {
-    question: 'Choisissez un mot :',
+    question: 'Choose a word :',
     answers: [
       {
         type: 'j',
@@ -139,137 +139,137 @@ const quizQuestions = [
       },
       {
         type: 'b',
-        content: 'Précision'
+        content: 'Precision'
       },
       {
         type: 'v',
-        content: 'Écoute'
+        content: 'Listening'
       }
     ]
   },
   {
-    question: 'Vous savez :',
+    question: 'You know how to :',
     answers: [
       {
         type: 'r',
-        content: 'Décider'
+        content: 'Decide'
       },
       {
         type: 'b',
-        content: 'Analyser'
+        content: 'Analyse'
       },
       {
         type: 'v',
-        content: 'Vous adapter'
+        content: 'Adapt'
       },
       {
         type: 'j',
-        content: 'Motiver'
+        content: 'Motivate'
       }
     ]
   },
   {
-    question: 'Vous pouvez être :',
+    question: 'You can be :',
     answers: [
       {
         type: 'r',
-        content: 'Trop direct'
+        content: 'Too direct'
       },
       {
         type: 'b',
-        content: 'Froid'
+        content: 'Cold'
       },
       {
         type: 'j',
-        content: 'Dissipé'
+        content: 'Unfocused'
       },
       {
         type: 'v',
-        content: 'Possessif'
+        content: 'Possessive'
       }
     ]
   },
   {
-    question: 'Les mots qui vous caractèrisent :',
+    question: 'The word that characterize you :',
     answers: [
       {
         type: 'r',
-        content: 'Exigeant'
+        content: 'Demanding'
       },
       {
         type: 'j',
-        content: 'Charmeur'
+        content: 'Charmer'
       },
       {
         type: 'v',
-        content: 'Pondéré'
+        content: 'Level-headed'
       },
       {
         type: 'b',
-        content: 'Ayant le sens du détail'
+        content: 'Detail oriented'
       }
     ]
   },
   {
-    question: 'Vous réglez les problèmes :',
+    question: 'You solve problems :',
     answers: [
       {
         type: 'b',
-        content: 'En analysant de façon approfondie'
+        content: 'By analyzing thoroughly'
       },
       {
         type: 'v',
-        content: 'Avec méthode et en cherchant un consensus'
+        content: 'With method and seeking a consensus'
       },
       {
         type: 'j',
-        content: 'A ma manière, sans trop tenir compte des règles'
+        content: 'In my own way, without paying too much attention to the rules'
       },
       {
         type: 'r',
-        content: 'De façon rapide et agressive pour obtenir des résultats'
+        content: 'In a fast and aggressive way to get results'
       }
     ]
   },
   {
-    question: 'Vous avez besoin :',
+    question: 'You need :',
     answers: [
       {
         type: 'v',
-        content: 'D’aider les autres'
+        content: 'To help others'
       },
       {
         type: 'r',
-        content: 'De dominer la situation'
+        content: 'To dominate a situation'
       },
       {
         type: 'b',
-        content: 'D’avoir un cadre de responsabilités défini'
+        content: 'To have very defined responsabilities'
       },
       {
         type: 'j',
-        content: 'D’interagir avec d’autres personnes'
+        content: 'To interact with other people'
       }
     ]
   },
   {
-    question: 'Si vous étiez un animal, vous seriez :',
+    question: 'If you were an animal, you would be :',
     answers: [
       {
         type: 'j',
-        content: 'Un singe'
+        content: 'A monkey'
       },
       {
         type: 'b',
-        content: 'Un aigle'
+        content: 'An eagle'
       },
       {
         type: 'r',
-        content: 'Un lion'
+        content: 'A lion'
       },
       {
         type: 'v',
-        content: 'Un dauphin'
+        content: 'A dolphin'
       }
     ]
   }
