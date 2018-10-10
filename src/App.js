@@ -135,9 +135,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          
-        </header>
+        
         {this.state.quizDone ? this.renderResult() : this.renderQuiz()}
       </div>
     );
